@@ -9,12 +9,18 @@ body {
     border: 1px solid black;
 }
 
+.button-start-pause {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 .button-start-pause button {
     background-color: gray;
     border: 1px solid black;
     border-radius: 10px;
     color: black;
-    padding: 15px 32px;
+    padding: 5px 20px;
     font-size: 15px;
     cursor: pointer;
 }

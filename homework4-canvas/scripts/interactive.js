@@ -36,3 +36,22 @@ speedSlider.addEventListener('input', () => {
         draw();
     }, delay);
 });
+
+//hide/show horizontal lines
+const hide_horizontal_lines = document.getElementById('hide-horizontal');
+
+hide_horizontal_lines.addEventListener('click', () => {
+    window.showHorizontalLines = !window.showHorizontalLines;
+
+    hide_horizontal_lines.textContent = window.showHorizontalLines ? 'Hide Horizontal' : 'Show Horizontal';
+    draw();
+});
+
+//hide/show vertical lines
+const hide_vertical_lines = document.getElementById('hide-vertical');
+hide_vertical_lines.addEventListener('click', () => {
+    window.showVerticalLines = !window.showVerticalLines;
+    
+    hide_vertical_lines.textContent = window.showVerticalLines ? 'Hide Vertical' : 'Show Vertical';
+    draw();
+})

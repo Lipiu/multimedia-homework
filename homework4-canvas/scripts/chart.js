@@ -12,6 +12,8 @@ window.onload = function() {
 
     window.intervalId = null;
     window.isRunning = false;
+    window.showHorizontalLines = true;
+    window.showVerticalLines = true;
     
 
     let data = [];
@@ -143,11 +145,19 @@ window.onload = function() {
     function draw()
     {
         context.clearRect(0, 0, width, height);
-        drawVerticalLines();
+
+        if(window.showVerticalLines){
+            drawVerticalLines();
+        }
+        
         drawRandom(5, "blue");
         drawRandom(7, "purple");
         drawRandom(6, "red");
-        drawHorizontalLines();
+
+        if(window.showHorizontalLines){
+            drawHorizontalLines();
+        }
+
         drawVerticalLabels();
         drawHorizontalLabels();
         drawChart();
