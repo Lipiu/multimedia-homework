@@ -10,7 +10,32 @@ window.onload = function() {
     let valueIncrement = 20;
     let textOffset = 5;
 
+    window.intervalId = null;
+    window.isRunning = false;
+    
+
     let data = [];
+
+    function startAnimation() {
+    if (window.isRunning){ 
+        return;
+    }
+    window.isRunning = true;
+    window.intervalId = setInterval(() => {
+        generateNewValue();
+        draw();
+    }, 1000);
+}
+
+function stopAnimation() {
+    window.isRunning = false;
+    clearInterval(window.intervalId);
+    window.intervalId = null;
+}
+
+window.startAnimation = startAnimation;
+window.stopAnimation = stopAnimation;
+window.isRunning = isRunning;
 
     function drawVerticalLines()
     {
@@ -40,6 +65,7 @@ window.onload = function() {
         }
     }
 
+
     function drawChart()
     {
         context.strokeStyle = 'green';
@@ -53,6 +79,35 @@ window.onload = function() {
             context.lineTo(i * valueIncrement, height - data[i]);
         }
 
+        context.stroke();
+    }
+
+    function drawRandom(randomVal, color){
+        context.strokeStyle = color;
+        context.lineWidth = 5;
+
+        context.lineJoin = 'round';
+        context.lineCap = 'round';
+
+        context.beginPath();
+        context.moveTo(0, height - data[0]);
+
+        for(let i = randomVal; i < data.length - randomVal; i += randomVal){
+            const x1 = i * valueIncrement;
+            const y1 = height - data[i];
+
+            const x2 = (i + randomVal) * valueIncrement;
+            const y2 = height - data[i + randomVal];
+
+            const xc = (x1 + x2) / 2;
+            const yc = (y1 + y2) / 2;
+
+            context.quadraticCurveTo(x1,y1,xc,yc);
+        }
+        context.lineTo(
+            (data.length - 1) * valueIncrement,
+            height - data[data.length - 1]
+        );
         context.stroke();
     }
 
@@ -89,10 +144,14 @@ window.onload = function() {
     {
         context.clearRect(0, 0, width, height);
         drawVerticalLines();
+        drawRandom(5, "blue");
+        drawRandom(7, "purple");
+        drawRandom(6, "red");
         drawHorizontalLines();
         drawVerticalLabels();
         drawHorizontalLabels();
         drawChart();
+        
     }
 
     function generateNewValue()
@@ -101,11 +160,6 @@ window.onload = function() {
         data.push(newValue);
         data.shift();
     }
-
-    setInterval(function() {
-        generateNewValue();
-        draw();
-    }, 1000)
 
     generateData();
     draw();

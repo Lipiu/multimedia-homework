@@ -8,3 +8,24 @@ body {
 #chartCanvas {
     border: 1px solid black;
 }
+
+.button-start-pause{
+    animation-play-state: var(--play-state);
+    position: fixed;
+    top: 20px;
+    left: 50px;
+}
+
+.button-start-pause button {
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    padding: 15px 32px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button-start-pause button:hover{
+    background-color: lightgray;
+}

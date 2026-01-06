@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <script src="scripts/chart.js" type="text/javascript"></script>
+    <script src="scripts/chart.js" defer type="text/javascript"></script>
+    <script src="scripts/buttonClick.js" defer type="text/javascript"></script>
 </head>
 <body>
     <canvas id="chartCanvas" width="900" height="600"></canvas>
+
+    <!-- Start/pause the animation -->
+     <div class="button-start-pause">
+        <button id="button-start-stop" type="button">
+            Start Animation
+        </button>
+     </div>
+    <!-- Adjust the update interval (speed) -->
+    <!-- Change the data generation range (min/max values) -->
+    <!-- Toggle grid lines on/off -->
+    <!-- Reset the chart with new data -->
+
 </body>
 </html>
