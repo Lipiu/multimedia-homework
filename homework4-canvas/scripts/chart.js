@@ -21,21 +21,21 @@ window.onload = function() {
         return;
     }
     window.isRunning = true;
+    const delay = getDelayFromSlider(speedSlider.value);
     window.intervalId = setInterval(() => {
         generateNewValue();
         draw();
-    }, 1000);
-}
+        }, delay);
+    }
 
-function stopAnimation() {
-    window.isRunning = false;
-    clearInterval(window.intervalId);
-    window.intervalId = null;
-}
+    function stopAnimation() {
+        window.isRunning = false;
+        clearInterval(window.intervalId);
+        window.intervalId = null;
+    }
 
-window.startAnimation = startAnimation;
-window.stopAnimation = stopAnimation;
-window.isRunning = isRunning;
+    window.startAnimation = startAnimation;
+    window.stopAnimation = stopAnimation;
 
     function drawVerticalLines()
     {
@@ -161,6 +161,8 @@ window.isRunning = isRunning;
         data.shift();
     }
 
+    window.generateNewValue = generateNewValue;
+    window.draw = draw;
     generateData();
     draw();
 }

@@ -9,13 +9,6 @@ body {
     border: 1px solid black;
 }
 
-.button-start-pause{
-    animation-play-state: var(--play-state);
-    position: fixed;
-    top: 20px;
-    left: 50px;
-}
-
 .button-start-pause button {
     background-color: gray;
     border: 1px solid black;
@@ -28,4 +21,28 @@ body {
 
 .button-start-pause button:hover{
     background-color: lightgray;
+}
+
+/* slider for speed */
+.controls {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }

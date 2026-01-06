@@ -6,17 +6,35 @@
     <title>Document</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
     <script src="scripts/chart.js" defer type="text/javascript"></script>
-    <script src="scripts/buttonClick.js" defer type="text/javascript"></script>
+    <script src="scripts/interactive.js" defer type="text/javascript"></script>
 </head>
 <body>
     <canvas id="chartCanvas" width="900" height="600"></canvas>
 
-    <!-- Start/pause the animation -->
-     <div class="button-start-pause">
-        <button id="button-start-stop" type="button">
-            Start Animation
-        </button>
+    <!-- controlers -->
+     <div class="controls">
+        <div class="button-start-pause">
+            <button id="button-start-stop" type="button">
+                Start Animation
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="moji">🏃‍♂️‍➡️</div>
+            <div class="slider">
+                <span>Slow</span>
+                <input  id="speedSlider" 
+                        type="range" 
+                        value="1" 
+                        min="1" 
+                        max="10" 
+                        step="1">
+                <span>Really fast!</span>
+            </div>
+        </div>
      </div>
+
+
     <!-- Adjust the update interval (speed) -->
     <!-- Change the data generation range (min/max values) -->
     <!-- Toggle grid lines on/off -->
