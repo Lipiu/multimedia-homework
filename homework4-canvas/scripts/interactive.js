@@ -54,4 +54,17 @@ hide_vertical_lines.addEventListener('click', () => {
     
     hide_vertical_lines.textContent = window.showVerticalLines ? 'Hide Vertical' : 'Show Vertical';
     draw();
-})
+});
+
+//export chart
+const export_chart = document.getElementById('export');
+export_chart.addEventListener('click', () => {
+    const canvas = document.getElementById('chartCanvas');
+    const dataURL = canvas.toDataURL('image/png');
+
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'chart.png';
+
+    link.click();
+});
