@@ -1,9 +1,36 @@
+:root {
+    --chart-1: blue;
+    --chart-2: purple;
+    --chart-3: red;
+}
+
 body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+}
+
+body.light{
+    --bg-color: #fff;
+    --grid-color: #ccc;
+    --text-color: #000;
+    --chart-main: green;
+}
+
+body.dark {
+    --chart-1: #4fc3f7;
+    --chart-2: #ba68c8;
+    --chart-3: #ef5350;
+}
+
+body.contrast {
+    --chart-1: #00ffff;
+    --chart-2: #ff00ff;
+    --chart-3: #ffff00;
 }
 #chartCanvas {
     border: 1px solid black;

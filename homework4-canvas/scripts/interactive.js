@@ -68,3 +68,13 @@ export_chart.addEventListener('click', () => {
 
     link.click();
 });
+
+//toggle themes
+const themeSelector = document.getElementById('theme-selector');
+
+themeSelector.addEventListener('change', () => {
+    document.body.classList.remove('light', 'dark', 'contrast');
+    document.body.classList.add(themeSelector.value);
+
+    draw();
+})

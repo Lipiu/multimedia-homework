@@ -30,6 +30,10 @@ window.onload = function() {
         }, delay);
     }
 
+    function getCssVar(name){
+        return getComputedStyle(document.body).getPropertyPriority(name).trim();
+    }
+
     function stopAnimation() {
         window.isRunning = false;
         clearInterval(window.intervalId);
@@ -41,7 +45,7 @@ window.onload = function() {
 
     function drawVerticalLines()
     {
-        context.strokeStyle = 'gray';
+        context.strokeStyle = getCssVar('--grid-color');
         context.lineWidth = 1;
         
         for(let i = 0; i< width; i += xIncrement)
@@ -55,7 +59,7 @@ window.onload = function() {
 
     function drawHorizontalLines()
     {
-        context.strokeStyle = 'gray';
+        context.strokeStyle = getCssVar('--grid-color');
         context.lineWidth = 1;
 
         for (let i = 0; i < height; i += yIncrement)
@@ -70,7 +74,7 @@ window.onload = function() {
 
     function drawChart()
     {
-        context.strokeStyle = 'green';
+        context.strokeStyle = getCssVar('--chart-main');
         context.lineWidth = 5;
 
         context.beginPath();
@@ -150,9 +154,9 @@ window.onload = function() {
             drawVerticalLines();
         }
         
-        drawRandom(5, "blue");
-        drawRandom(7, "purple");
-        drawRandom(6, "red");
+        drawRandom(5, getCssVar("--chart-1"));
+        drawRandom(7, getCssVar("--chart-2"));
+        drawRandom(6, getCssVar("--chart-3"));
 
         if(window.showHorizontalLines){
             drawHorizontalLines();
