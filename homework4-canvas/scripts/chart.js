@@ -14,6 +14,8 @@ window.onload = function() {
     window.isRunning = false;
     window.showHorizontalLines = true;
     window.showVerticalLines = true;
+
+    window.chartType = 'line';
     
 
     let data = [];
@@ -90,6 +92,21 @@ window.onload = function() {
         context.stroke();
     }
 
+    function drawBarChart(){
+        const barWidth = valueIncrement * 0.5;
+        const gap = valueIncrement * 0.3;
+
+        context.fillStyle = getCssVar('--chart-main');
+
+        for(let i = 0; i < data.length; i++){
+            const x = i * valueIncrement + gap /2;
+            const y = height - data[i];
+            const barHeight = data[i];
+
+            context.fillRect(x,y,barWidth,barHeight);
+        }
+    }
+
     function drawRandom(randomVal, color){
         context.strokeStyle = color;
         context.lineWidth = 5;
@@ -156,17 +173,24 @@ window.onload = function() {
             drawVerticalLines();
         }
         
-        drawRandom(5, getCssVar("--chart-1"));
-        drawRandom(7, getCssVar("--chart-2"));
-        drawRandom(6, getCssVar("--chart-3"));
-
+        if(window.chartType === 'line'){
+            drawRandom(5, getCssVar("--chart-1"));
+            drawRandom(7, getCssVar("--chart-2"));
+            drawRandom(6, getCssVar("--chart-3"));
+        }
         if(window.showHorizontalLines){
             drawHorizontalLines();
         }
 
         drawVerticalLabels();
         drawHorizontalLabels();
-        drawChart();
+        
+        if(window.chartType === 'line'){
+            drawChart();
+        }
+        else{
+            drawBarChart();
+        }
         
     }
 

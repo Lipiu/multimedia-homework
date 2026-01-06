@@ -77,4 +77,19 @@ themeSelector.addEventListener('change', () => {
     document.body.classList.add(themeSelector.value);
 
     draw();
+});
+
+const toggleBarChartBtn = document.getElementById('toggle-chart');
+
+toggleBarChartBtn.addEventListener('click', () => {
+    if(window.chartType === 'line'){
+        window.chartType = 'bar';
+        toggleBarChartBtn.textContent = 'Line Chart';
+    }
+    else{
+        window.chartType = 'line';
+        toggleBarChartBtn.textContent = 'Bar Chart';
+    }
+    draw();
 })
+
