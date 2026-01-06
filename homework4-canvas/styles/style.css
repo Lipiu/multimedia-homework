@@ -22,16 +22,27 @@ body.light{
 }
 
 body.dark {
+    --bg-color: #121212;
+    --grid-color: #444;
+    --text-color: #fff;
+    --chart-main: lime;
+
     --chart-1: #4fc3f7;
     --chart-2: #ba68c8;
     --chart-3: #ef5350;
 }
 
 body.contrast {
+    --bg-color: black;
+    --grid-color: white;
+    --text-color: yellow;
+    --chart-main: white;
+
     --chart-1: #00ffff;
     --chart-2: #ff00ff;
     --chart-3: #ffff00;
 }
+
 #chartCanvas {
     border: 1px solid black;
 }

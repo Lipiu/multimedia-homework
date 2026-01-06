@@ -31,7 +31,9 @@ window.onload = function() {
     }
 
     function getCssVar(name){
-        return getComputedStyle(document.body).getPropertyPriority(name).trim();
+        return getComputedStyle(document.body)
+        .getPropertyValue(name)
+        .trim();
     }
 
     function stopAnimation() {
